@@ -31,7 +31,7 @@ import {
 import { workspaceRoot } from '../../utils/workspace-root';
 import { notifyFileWatcherSockets } from './file-watching/file-watcher-sockets';
 import { serverLogger } from './logger';
-import { NxWorkspaceFilesExternals } from '../../native';
+import { NxWorkspaceFilesExternals } from '../../native/import';
 import {
   ConfigurationResult,
   ProjectConfigurationsError,
