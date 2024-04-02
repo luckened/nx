@@ -2,7 +2,7 @@ const { join, sep, normalize } = require('path');
 const { createHash } = require('crypto');
 const { copyFileSync, existsSync, mkdirSync, readFileSync } = require('fs');
 const Module = require('module');
-const { tmpdir } = require('os');
+const { nativeFileCacheLocation } = require('./native-file-cache-location');
 
 const nxPackages = [
   '@nx/nx-android-arm64',
@@ -52,14 +52,13 @@ Module._load = function (request, parent, isMain) {
     const hash = createHash('md5')
       .update(nativeLocation + fileContents)
       .digest('hex');
-    const tmpFolder = join(tmpdir(), 'nx-native-cache');
-    const tmpFile = join(tmpFolder, hash + '-' + fileName);
+    const tmpFile = join(nativeFileCacheLocation, hash + '-' + fileName);
     if (existsSync(tmpFile)) {
       console.log('file already exists @', tmpFile);
       return originalLoad.apply(this, [tmpFile, parent, isMain]);
     }
-    if (!existsSync(tmpFolder)) {
-      mkdirSync(tmpFolder);
+    if (!existsSync(nativeFileCacheLocation)) {
+      mkdirSync(nativeFileCacheLocation, { recursive: true });
     }
     copyFileSync(nativeLocation, tmpFile);
     console.log('copied sucessfully, loading from', tmpFile);

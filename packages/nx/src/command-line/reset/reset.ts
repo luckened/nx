@@ -5,6 +5,7 @@ import {
   projectGraphCacheDirectory,
 } from '../../utils/cache-directory';
 import { output } from '../../utils/output';
+import { cleanupNativeFileCache } from '../../native/native-file-cache-location';
 
 export async function resetHandler() {
   output.note({
@@ -17,6 +18,7 @@ export async function resetHandler() {
   if (projectGraphCacheDirectory !== cacheDir) {
     rmSync(projectGraphCacheDirectory, { recursive: true, force: true });
   }
+  cleanupNativeFileCache();
   output.success({
     title: 'Successfully reset the Nx workspace.',
   });

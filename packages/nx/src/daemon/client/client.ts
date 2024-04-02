@@ -27,6 +27,7 @@ import { Task, TaskGraph } from '../../config/task-graph';
 import { ConfigurationSourceMaps } from '../../project-graph/utils/project-configuration-utils';
 import { DaemonProjectGraphError } from '../daemon-project-graph-error';
 import { ProjectGraphError } from '../../project-graph/project-graph';
+import { cleanupNativeFileCache } from '../../native/native-file-cache-location';
 
 const DAEMON_ENV_SETTINGS = {
   ...process.env,
@@ -443,6 +444,7 @@ export class DaemonClient {
     }
 
     removeSocketDir();
+    cleanupNativeFileCache();
   }
 }
 
