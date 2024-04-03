@@ -4,7 +4,7 @@ import {
   Project,
   Target,
   ProjectGraph as RustProjectGraph,
-} from './index';
+} from './import';
 
 export function transformProjectGraphForRust(
   graph: ProjectGraph

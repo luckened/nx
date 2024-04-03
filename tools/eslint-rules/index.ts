@@ -1,4 +1,8 @@
 import {
+  RULE_NAME as onlyWrappedNativeImportsName,
+  rule as onlyWrappedNativeImports,
+} from './rules/only-wrapped-native-imports';
+import {
   RULE_NAME as validSchemaDescriptionName,
   rule as validSchemaDescription,
 } from './rules/valid-schema-description';
@@ -27,5 +31,8 @@ module.exports = {
    *  [myCustomRuleName]: myCustomRule
    * }
    */
-  rules: { [validSchemaDescriptionName]: validSchemaDescription },
+  rules: {
+    [validSchemaDescriptionName]: validSchemaDescription,
+    [onlyWrappedNativeImportsName]: onlyWrappedNativeImports,
+  },
 };
