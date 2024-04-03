@@ -56,7 +56,7 @@ function isInvalidImport(importPath: string, fileName: string): boolean {
     const absolutePath = resolve(dirname(fileName), importPath);
     const normalizedPath = normalize(absolutePath);
 
-    return regex.test(normalizedPath)
+    return regex.test(normalizedPath);
   }
-  return regex.test(importPath)
+  return regex.test(importPath);
 }

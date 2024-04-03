@@ -54,14 +54,12 @@ Module._load = function (request, parent, isMain) {
       .digest('hex');
     const tmpFile = join(nativeFileCacheLocation, hash + '-' + fileName);
     if (existsSync(tmpFile)) {
-      console.log('file already exists @', tmpFile);
       return originalLoad.apply(this, [tmpFile, parent, isMain]);
     }
     if (!existsSync(nativeFileCacheLocation)) {
       mkdirSync(nativeFileCacheLocation, { recursive: true });
     }
     copyFileSync(nativeLocation, tmpFile);
-    console.log('copied sucessfully, loading from', tmpFile);
     return originalLoad.apply(this, [tmpFile, parent, isMain]);
   } else {
     return originalLoad.apply(this, arguments);
