@@ -15,7 +15,7 @@ import { calculateHashForCreateNodes } from '@nx/devkit/src/utils/calculate-hash
 import { getLockFileName } from '@nx/js';
 import { getNamedInputs } from '@nx/devkit/src/utils/get-named-inputs';
 import { type RollupOptions } from 'rollup';
-import * as loadConfigFile from 'rollup/dist/loadConfigFile';
+import { loadConfigFile } from '@nx/devkit/src/utils/config-utils';
 
 const cachePath = join(projectGraphCacheDirectory, 'rollup.hash');
 const targetsCache = existsSync(cachePath) ? readTargetsCache() : {};
