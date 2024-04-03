@@ -1,4 +1,4 @@
-import { hashArray, hashFile } from '../index';
+import { hashArray, hashFile } from '../import';
 
 import { tmpdir } from 'os';
 import { mkdtemp, writeFile } from 'fs-extra';

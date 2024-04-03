@@ -1,4 +1,4 @@
-import { WorkspaceContext } from '../index';
+import { WorkspaceContext } from '../import';
 import { TempFs } from '../../internal-testing-utils/temp-fs';
 import { NxJsonConfiguration } from '../../config/nx-json';
 import { dirname, join } from 'path';

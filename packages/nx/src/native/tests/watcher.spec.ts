@@ -1,5 +1,5 @@
 import { TempFs } from '../../internal-testing-utils/temp-fs';
-import { Watcher } from '../index';
+import { Watcher } from '../import';
 
 describe('watcher', () => {
   let temp: TempFs;

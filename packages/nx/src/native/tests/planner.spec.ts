@@ -1,7 +1,7 @@
 import { TempFs } from '../../internal-testing-utils/temp-fs';
 let tempFs = new TempFs('task-planner');
 
-import { HashPlanner, transferProjectGraph } from '../index';
+import { HashPlanner, transferProjectGraph } from '../import';
 import { Task, TaskGraph } from '../../config/task-graph';
 import { InProcessTaskHasher } from '../../hasher/task-hasher';
 import { withEnvironmentVariables } from '../../internal-testing-utils/with-environment';
