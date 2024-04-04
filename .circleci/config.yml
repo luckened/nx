@@ -139,6 +139,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y ca-certificates lsof
+            sudo apt-get install libvips-dev
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - install-sdkman
